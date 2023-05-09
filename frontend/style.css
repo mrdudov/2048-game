@@ -71,3 +71,7 @@ main {
     background-color: white;
     color: #353edc;
 }
+
+.game-over {
+    opacity: 0.5;
+}

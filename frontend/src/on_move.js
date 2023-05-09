@@ -11,8 +11,7 @@ function on_move(direction,  arr) {
     for (let i = 0; i < NEW_VALUE_COUNT; i++) {
         gb = add_one_new_value_to_free_cell(gb)
         if (gb === "game_over") {
-            // TODO: game over
-            console.log("game_over")
+            return null
         }
     }
     return gb

@@ -3,7 +3,8 @@ export {
     getNewValue, 
     add_one_new_value_to_free_cell, 
     getFreeCells,
-    get_direction
+    get_direction,
+    game_over
 }
 
 import { NEW_VALUE_LIST } from "../configure.js"
@@ -69,5 +70,13 @@ function get_direction(event) {
     }
     else if (event.keyCode == '39') {
         return "right"
+    } else {
+        return ''
     }
+}
+
+
+function game_over(board_el) {
+    console.log('game over')
+    board_el.classList.add('game-over')
 }
