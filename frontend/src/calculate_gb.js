@@ -49,6 +49,7 @@ function left_move(board) {
                     } else  if(line[t] === line[t-1]) {
                         line[t-1] = 2 * line[t]
                         line[t] = 0
+                        break
                     }
                     t -= 1
                 } 
