@@ -75,3 +75,9 @@ main {
 .game-over {
     opacity: 0.5;
 }
+
+.game-over:before {
+    position: absolute;
+    content: "GAME OVER";
+}
+
