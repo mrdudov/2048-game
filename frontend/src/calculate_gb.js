@@ -17,16 +17,17 @@ function calc(g_board, direction) {
 
 function right_move(board) {
     for (const line of board) {
-        for (let cell = line.length -1 ; cell >= 0; cell--) {
-            if (line[cell] !== 0) {
-                let t = cell
+        for (let cell_i = line.length -1 ; cell_i >= 0; cell_i--) {
+            if (line[cell_i] !== 0) {
+                let t = cell_i
                 while (line[t+1] !== undefined) {
                     if (line[t+1] === 0) {
                         line[t+1] = line[t]
                         line[t] = 0
-                    } else  if(line[t] === line[t+1]) {
-                        line[t + 1] = 2 * line[t]
+                    } else if(line[t] === line[t+1]) {
+                        line[t+1] = 2 * line[t]
                         line[t] = 0
+                        break
                     }
                     t += 1
                 } 
