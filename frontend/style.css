@@ -32,6 +32,7 @@ main {
     align-items: center;
     flex-wrap: wrap;
     gap: 2px;
+    border-radius: 5px;
 }
 
 .cell {
@@ -43,4 +44,5 @@ main {
     align-items: center;
     font-size: 2rem;
     color: #3f4052;
+    border-radius: 5px;
 }

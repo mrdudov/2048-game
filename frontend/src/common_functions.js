@@ -1,31 +1,55 @@
-export { on_move, render }
-
-
-function calc(g_board, direction) {
- return [
-        [0, 0, 0, 2],
-        [0, 0, 0, 2],
-        [0, 0, 0, 4],
-        [0, 0, 0, 0],
-    ]
+export { 
+    getRandomInt, 
+    getNewValue, 
+    add_one_new_value_to_free_cell, 
+    getFreeCells 
 }
 
-function on_move(direction,  arr, g_board_el) {
-    const gb = calc(arr, direction)
-    render(gb, g_board_el)
+import { NEW_VALUE_LIST } from "../configure.js"
+
+
+function add_one_new_value_to_free_cell (board) {
+
+    const free_cells = getFreeCells(board)
+
+    if (free_cells.length === 0) {
+        return "game_over"
+    }
+
+    if (free_cells.length === 1) {
+        board[free_cells[0][0]][free_cells[0][1]] = getNewValue()
+        return board
+    }
+
+    const coordinate = free_cells[getRandomInt(0, free_cells.length)]
+    board[coordinate[0]][coordinate[1]] = getNewValue()
+
+    return board
 }
 
 
-function render(arr, board) {
-    board.innerHTML = ''
-    for (const line of arr) {
-        for (const cell of line) {
-            let cell_el = document.createElement('div')
-            cell_el.classList.add('cell')
-            if (cell !== 0) {
-                cell_el.innerHTML = cell
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.ceil(max);
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+
+function getFreeCells(board) {
+    const free_cells = []
+    
+    for (let line_no = 0; line_no < board.length; line_no++) {
+        for (let cell_no = 0; cell_no < board[line_no].length; cell_no++) {
+            if (board[line_no][cell_no] === 0) {
+                free_cells.push([line_no, cell_no])
             }
-            board.append(cell_el) 
         }
     }
+
+    return free_cells
+}
+
+
+function getNewValue() {
+    return NEW_VALUE_LIST[getRandomInt(0, NEW_VALUE_LIST.length)]
 }

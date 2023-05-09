@@ -1,24 +1,21 @@
-export { init }
+export { init_game_board }
+
+import { getRandomInt, getNewValue } from './common_functions.js'
+import { INIT_CELLS_COUNT } from '../configure.js'
 
 
 const game_board = [
-    [0, 0, 0, 0],
+    [2, 2, 2, 2],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
 ]
 
-function init() {
-    for (let i=0; i < 3; i++) {
-        let line_no = getRandomInt(0, 4)
-        let cell_no = getRandomInt(0, 4)
-        game_board[line_no][cell_no] = 2
-    }
+function init_game_board() {
+    // for (let i=0; i < INIT_CELLS_COUNT; i++) {
+    //     let line_no = getRandomInt(0, 4)
+    //     let cell_no = getRandomInt(0, 4)
+    //     game_board[line_no][cell_no] = getNewValue()
+    // }
     return game_board
-}
-
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.ceil(max);
-    return Math.floor(Math.random() * (max - min) + min);
 }
