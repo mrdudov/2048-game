@@ -7,7 +7,7 @@ import { INIT_CELLS_COUNT } from '../configure.js'
 function init_game_board() {
 
     let game_board = [
-        [2, 2, 2, 2],
+        [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
