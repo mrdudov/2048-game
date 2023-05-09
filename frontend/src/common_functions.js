@@ -2,7 +2,8 @@ export {
     getRandomInt, 
     getNewValue, 
     add_one_new_value_to_free_cell, 
-    getFreeCells 
+    getFreeCells,
+    get_direction
 }
 
 import { NEW_VALUE_LIST } from "../configure.js"
@@ -52,4 +53,21 @@ function getFreeCells(board) {
 
 function getNewValue() {
     return NEW_VALUE_LIST[getRandomInt(0, NEW_VALUE_LIST.length)]
+}
+
+
+function get_direction(event) {
+    event = event || window.event;
+    if (event.keyCode == '38') {
+        return "up"
+    }
+    else if (event.keyCode == '40') {
+        return "down"
+    }
+    else if (event.keyCode == '37') {
+        return "left"
+    }
+    else if (event.keyCode == '39') {
+        return "right"
+    }
 }

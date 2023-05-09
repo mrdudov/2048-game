@@ -13,17 +13,24 @@ body {
 }
 
 header {
-    margin-top: 3rem;
+    margin: 3rem 0 1rem 0;
     display: flex;
     justify-content: center;
+}
+
+header h1 {
+    font-size: 3rem;
 }
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 #game-board {
+    margin: auto;
     height: 440px;
     width: 440px;
     background-color: #e8e9ff;
@@ -45,4 +52,22 @@ main {
     font-size: 2rem;
     color: #3f4052;
     border-radius: 5px;
+}
+
+#restart {
+    margin-top: 2rem;
+    height: 3rem;
+    width: 12rem;
+    border: 1px solid #353edc;
+    background-color: #353edc;
+    color: white;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#restart:active {
+    background-color: white;
+    color: #353edc;
 }
