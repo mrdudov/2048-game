@@ -8,6 +8,7 @@ function render(arr, board) {
             let cell_el = document.createElement('div')
             cell_el.classList.add('cell')
             if (cell !== 0) {
+                cell_el.classList.add('cell-' + cell)
                 cell_el.innerHTML = cell
             }
             board.append(cell_el) 

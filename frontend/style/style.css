@@ -45,7 +45,7 @@ main {
 .cell {
     width: 100px;
     height: 100px;
-    background-color: #fffbca;
+    background-color: #fffdec;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,6 +53,7 @@ main {
     color: #3f4052;
     border-radius: 5px;
 }
+
 
 #restart {
     margin-top: 2rem;
