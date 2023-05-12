@@ -9,7 +9,7 @@ function init_game_board() {
     let game_board = [
         [0, 0, 0, 0],
         [0, 0, 0, 0],
-        [0, 0, 0, 0],
+        [2, 8, 8, 16],
         [0, 0, 0, 0],
     ]
 

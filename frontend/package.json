@@ -1,0 +1,21 @@
+{
+  "name": "2048-game",
+  "version": "0.1.0",
+  "description": "2048-game",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "../"
+  },
+  "keywords": [
+    "2048-game"
+  ],
+  "author": "mrdudov",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.5.0"
+  }
+}
