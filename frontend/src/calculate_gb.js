@@ -78,18 +78,24 @@ function left_move(board) {
 }
 
 function up_move(board) {
+    board = add_is_add_flag(board)
+
     for (let cell_no = 0 ; cell_no < board.length; cell_no++) {
         for (let line_no = 1; line_no < board.length; line_no++) {
-            if (board[line_no][cell_no] !== 0) {
+            if (board[line_no][cell_no]["value"] !== 0) {
                 let t = line_no
                 while (board[t-1] !== undefined) {
-                    if (board[t-1][cell_no] === 0) {
-                        board[t-1][cell_no] = board[t][cell_no]
-                        board[t][cell_no] = 0
+                    if (board[t-1][cell_no]["value"] === 0) {
+                        board[t-1][cell_no]["value"] = board[t][cell_no]["value"]
+                        board[t][cell_no]["value"] = 0
                         t -= 1
-                    } else if(board[t][cell_no] === board[t-1][cell_no]) {
-                        board[t-1][cell_no] = 2 * board[t][cell_no]
-                        board[t][cell_no] = 0
+                    } else if(board[t][cell_no]["value"] === board[t-1][cell_no]["value"]) {
+                        if (board[t-1][cell_no]["is_add"]) {
+                            break
+                        }
+                        board[t-1][cell_no]["value"] = 2 * board[t][cell_no]["value"]
+                        board[t-1][cell_no]["is_add"] = true
+                        board[t][cell_no]["value"] = 0
                         break
                     } else {
                         break
@@ -98,6 +104,7 @@ function up_move(board) {
             }
         }
     }
+    board = remove_is_add_flag(board)
     return board
 }
 
