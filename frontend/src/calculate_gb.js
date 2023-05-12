@@ -24,15 +24,17 @@ function right_move(board) {
                     if (line[t+1] === 0) {
                         line[t+1] = line[t]
                         line[t] = 0
+                        t += 1
                     } else if(line[t] === line[t+1]) {
                         line[t+1] = 2 * line[t]
                         line[t] = 0
                         break
+                    } else {
+                        break
                     }
-                    t += 1
-                } 
+                }
             }
-        }    
+        }
     }
     return board
 }
@@ -46,15 +48,17 @@ function left_move(board) {
                     if (line[t-1] === 0) {
                         line[t-1] = line[t]
                         line[t] = 0
+                        t -= 1
                     } else  if(line[t] === line[t-1]) {
                         line[t-1] = 2 * line[t]
                         line[t] = 0
                         break
+                    } else {
+                        break
                     }
-                    t -= 1
-                } 
+                }
             }
-        }    
+        }
     }
     return board
 }
@@ -68,13 +72,15 @@ function up_move(board) {
                     if (board[t-1][cell_no] === 0) {
                         board[t-1][cell_no] = board[t][cell_no]
                         board[t][cell_no] = 0
+                        t -= 1
                     } else if(board[t][cell_no] === board[t-1][cell_no]) {
                         board[t-1][cell_no] = 2 * board[t][cell_no]
                         board[t][cell_no] = 0
                         break
+                    } else {
+                        break
                     }
-                    t -= 1
-                } 
+                }
             }
         }
     }
@@ -90,13 +96,15 @@ function down_move(board) {
                     if (board[t+1][cell_no] === 0) {
                         board[t+1][cell_no] = board[t][cell_no]
                         board[t][cell_no] = 0
+                        t += 1
                     } else if(board[t][cell_no] === board[t+1][cell_no]) {
                         board[t+1][cell_no] = 2 * board[t][cell_no]
                         board[t][cell_no] = 0
                         break
+                    } else {
+                        break
                     }
-                    t += 1
-                } 
+                }
             }
         }
     }
