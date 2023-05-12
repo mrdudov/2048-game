@@ -16,18 +16,24 @@ function calc(g_board, direction) {
 
 
 function right_move(board) {
+    board = add_is_add_flag(board)
+    
     for (const line of board) {
         for (let cell_i = line.length -1 ; cell_i >= 0; cell_i--) {
-            if (line[cell_i] !== 0) {
+            if (line[cell_i]["value"] !== 0) {
                 let t = cell_i
                 while (line[t+1] !== undefined) {
-                    if (line[t+1] === 0) {
-                        line[t+1] = line[t]
-                        line[t] = 0
+                    if (line[t+1]["value"] === 0) {
+                        line[t+1]["value"] = line[t]["value"]
+                        line[t]["value"] = 0
                         t += 1
-                    } else if(line[t] === line[t+1]) {
-                        line[t+1] = 2 * line[t]
-                        line[t] = 0
+                    } else if(line[t]["value"] === line[t+1]["value"]) {
+                        if (line[t+1]["is_add"]) {
+                            break
+                        }
+                        line[t+1]["value"] = 2 * line[t]["value"]
+                        line[t+1]["is_add"] = true
+                        line[t]["value"] = 0
                         break
                     } else {
                         break
@@ -36,6 +42,7 @@ function right_move(board) {
             }
         }
     }
+    board = remove_is_add_flag(board)
     return board
 }
 
@@ -109,4 +116,31 @@ function down_move(board) {
         }
     }
     return board
+}
+
+function add_is_add_flag(board) {
+    const result = []
+
+    for(let line_no = 0; line_no < board.length; line_no++) {
+        result.push([])
+        for (let cell_no = 0; cell_no < board.length; cell_no++) {
+            result[line_no].push({
+                "value": board[line_no][cell_no],
+                "is_add": false
+            })
+        }
+    }
+
+    return result
+}
+
+function remove_is_add_flag(board) {
+    const result = []
+    for(let line_no = 0; line_no < board.length; line_no++) {
+        result.push([])
+        for (let cell_no = 0; cell_no < board.length; cell_no++) {
+            result[line_no].push(board[line_no][cell_no]["value"])
+        }
+    }
+    return result
 }
