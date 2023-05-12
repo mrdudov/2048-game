@@ -47,18 +47,24 @@ function right_move(board) {
 }
 
 function left_move(board) {
+    board = add_is_add_flag(board)
+
     for (const line of board) {
         for (let cell = 1; cell < line.length; cell++) {
-            if (line[cell] !== 0) {
+            if (line[cell]["value"] !== 0) {
                 let t = cell
                 while (line[t-1] !== undefined) {
-                    if (line[t-1] === 0) {
-                        line[t-1] = line[t]
-                        line[t] = 0
+                    if (line[t-1]["value"] === 0) {
+                        line[t-1]["value"] = line[t]["value"]
+                        line[t]["value"] = 0
                         t -= 1
-                    } else  if(line[t] === line[t-1]) {
-                        line[t-1] = 2 * line[t]
-                        line[t] = 0
+                    } else  if(line[t]["value"] === line[t-1]["value"]) {
+                        if (line[t-1]["is_add"]) {
+                            break
+                        }
+                        line[t-1]["value"] = 2 * line[t]["value"]
+                        line[t-1]["is_add"] = true
+                        line[t]["value"] = 0
                         break
                     } else {
                         break
@@ -67,6 +73,7 @@ function left_move(board) {
             }
         }
     }
+    board = remove_is_add_flag(board)
     return board
 }
 
