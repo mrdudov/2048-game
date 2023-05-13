@@ -1,10 +1,5 @@
 @import 'roboto.css';
-
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
+@import 'reset-css';
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -54,7 +49,6 @@ main {
     border-radius: 5px;
 }
 
-
 #restart {
     margin-top: 2rem;
     height: 3rem;
@@ -81,4 +75,3 @@ main {
     position: absolute;
     content: "GAME OVER";
 }
-
