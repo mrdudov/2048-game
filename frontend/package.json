@@ -23,6 +23,7 @@
     "reset-css": "^5.0.1"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.1",
     "style-loader": "^3.3.2",
