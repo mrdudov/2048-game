@@ -4,7 +4,9 @@
   "description": "2048-game",
   "main": "main.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,9 @@
     "jest": "^29.5.0"
   },
   "devDependencies": {
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.1",
+    "style-loader": "^3.3.2",
     "webpack": "^5.82.1",
     "webpack-cli": "^5.1.1"
   }

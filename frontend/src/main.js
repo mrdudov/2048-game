@@ -3,6 +3,9 @@ import { render } from './libs/render.js'
 import { on_move } from './libs/on_move.js'
 import { get_direction, game_over } from './libs/common_functions.js'
 
+import './styles/style.css'
+import './styles/cells.css'
+
 
 const game_board_el = document.querySelector('#game-board')
 const restart_button = document.querySelector('#restart')
