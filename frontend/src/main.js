@@ -1,7 +1,7 @@
-import { init_game_board } from './src/init.js'
-import { render } from './src/render.js'
-import { on_move } from './src/on_move.js'
-import { get_direction, game_over } from './src/common_functions.js'
+import { init_game_board } from './libs/init.js'
+import { render } from './libs/render.js'
+import { on_move } from './libs/on_move.js'
+import { get_direction, game_over } from './libs/common_functions.js'
 
 
 const game_board_el = document.querySelector('#game-board')
