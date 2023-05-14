@@ -1,6 +1,6 @@
-// import { calc } from "./calculate_gb"
+import { calc } from "./calculate_gb"
 
-const { calc } = require('./calculate_gb')
+// const { calc } = require('./calculate_gb')
 
 describe('double adding case 1', () => {
     test('move right', () => {
@@ -34,9 +34,8 @@ describe('double adding case 1', () => {
             [16, 16, 2, 0],
             [0, 0, 0, 0],
         ]
-        expect(calc(game_board, 'right')).toEqual(result)    
+        expect(calc(game_board, 'left')).toEqual(result)    
     })
-
 
     test('move up', () => {
         let game_board = [
@@ -52,7 +51,7 @@ describe('double adding case 1', () => {
             [0, 0, 2, 0],
             [0, 0, 0, 0],
         ]
-        expect(calc(game_board, 'right')).toEqual(result)    
+        expect(calc(game_board, 'up')).toEqual(result)    
     })
 
     test('move down', () => {
@@ -69,7 +68,7 @@ describe('double adding case 1', () => {
             [0, 0, 16, 0],
             [0, 0, 16, 0],
         ]
-        expect(calc(game_board, 'right')).toEqual(result)    
+        expect(calc(game_board, 'down')).toEqual(result)    
     })
 })
 
@@ -102,12 +101,11 @@ describe('double adding case 2', () => {
         let result = [
             [0, 0, 0, 0],
             [0, 0, 0, 0],
-            [0, 16, 16, 0],
+            [0, 16, 16, 2],
             [0, 0, 0, 0],
         ]
         expect(calc(game_board, 'right')).toEqual(result)    
     })
-
 
     test('move down', () => {
         let game_board = [
@@ -121,7 +119,7 @@ describe('double adding case 2', () => {
             [0, 0, 0, 0],
             [0, 0, 16, 0],
             [0, 0, 16, 0],
-            [0, 0, 0, 0],
+            [0, 0, 2, 0],
         ]
         expect(calc(game_board, 'down')).toEqual(result)    
     })
