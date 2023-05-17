@@ -6,17 +6,21 @@ import { State } from "./global_state.js"
 function calc(direction) {
     const board = State.getInstance().game_board
 
-    if (direction == "right") {
-        return right_move(board)
-    } else if (direction == "left") {
-        return left_move(board)
-    } else if (direction == "up") {
-        return up_move(board)
-    } else if (direction == "down") {
-        return down_move(board)
-    } else {
-        console.log('error invalid direction value: ', direction)
+    switch (direction) {
+        case 'right': return right_move(board)
+        case 'left': return left_move(board)
+        case 'up': return up_move(board)
+        case 'down': return down_move(board)
+        default: console.log('error invalid direction value: ', direction)
     }
+}
+
+
+function sum_cells(cell_to, cell_from) {
+    State.increase_score(cell_from["value"])
+    cell_to["value"] = 2 * cell_from["value"]
+    cell_to["is_add"] = true
+    cell_from["value"] = 0
 }
 
 
@@ -36,9 +40,7 @@ function right_move(board) {
                         if (line[t+1]["is_add"]) {
                             break
                         }
-                        line[t+1]["value"] = 2 * line[t]["value"]
-                        line[t+1]["is_add"] = true
-                        line[t]["value"] = 0
+                        sum_cells(line[t+1], line[t])
                         break
                     } else {
                         break
@@ -67,9 +69,7 @@ function left_move(board) {
                         if (line[t-1]["is_add"]) {
                             break
                         }
-                        line[t-1]["value"] = 2 * line[t]["value"]
-                        line[t-1]["is_add"] = true
-                        line[t]["value"] = 0
+                        sum_cells(line[t-1], line[t])
                         break
                     } else {
                         break
@@ -98,9 +98,7 @@ function up_move(board) {
                         if (board[t-1][cell_no]["is_add"]) {
                             break
                         }
-                        board[t-1][cell_no]["value"] = 2 * board[t][cell_no]["value"]
-                        board[t-1][cell_no]["is_add"] = true
-                        board[t][cell_no]["value"] = 0
+                        sum_cells(board[t-1][cell_no], board[t][cell_no])
                         break
                     } else {
                         break
@@ -129,9 +127,7 @@ function down_move(board) {
                         if (board[t+1][cell_no]["is_add"]) {
                             break
                         }
-                        board[t+1][cell_no]["value"] = 2 * board[t][cell_no]["value"]
-                        board[t+1][cell_no]["is_add"] = true
-                        board[t][cell_no]["value"] = 0
+                        sum_cells(board[t+1][cell_no], board[t][cell_no])
                         break
                     } else {
                         break

@@ -22,4 +22,10 @@ class State {
             this.instance.current_score = 0
         }
     }
+
+    static increase_score(value) {
+        if (this.instance) {
+            this.instance.current_score += value
+        }
+    }
 }
