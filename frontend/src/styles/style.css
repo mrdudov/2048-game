@@ -75,3 +75,16 @@ main {
     position: absolute;
     content: "GAME OVER";
 }
+
+.score {
+    width: 440px;
+    display: flex;
+    justify-content: space-between;
+}
+.score-current {
+    text-transform: uppercase;
+}
+
+.score-record {
+    text-transform: uppercase;
+}
