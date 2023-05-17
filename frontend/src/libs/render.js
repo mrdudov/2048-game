@@ -11,9 +11,7 @@ function render() {
 
 
 function render_score() {
-    let state = State.getInstance()
-    const score = state.current_score
-    elements['score_current'].innerHTML = score
+    elements['score_current'].innerHTML = State.getInstance().current_score
 }
 
 function render_game_board() {
