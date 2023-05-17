@@ -3,16 +3,14 @@ export { on_move }
 import { NEW_VALUE_COUNT } from "../configure.js"
 import { calc } from "./calculate_gb.js"
 import { add_one_new_value_to_free_cell } from './common_functions.js'
+import { State } from "./global_state.js"
 
 
-function on_move(direction,  arr) {
-    let gb = calc(arr, direction)
-    
+function on_move(direction) {
+    const state  = State.getInstance()
+
+    state.game_board = calc(direction)
     for (let i = 0; i < NEW_VALUE_COUNT; i++) {
-        gb = add_one_new_value_to_free_cell(gb)
-        if (gb === "game_over") {
-            return null
-        }
+        state.game_board = add_one_new_value_to_free_cell(state.game_board)
     }
-    return gb
 }

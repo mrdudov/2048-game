@@ -1,16 +1,21 @@
 export { calc }
 
-function calc(g_board, direction) {
+import { State } from "./global_state.js"
+
+
+function calc(direction) {
+    const board = State.getInstance().game_board
+
     if (direction == "right") {
-        return right_move(g_board)
+        return right_move(board)
     } else if (direction == "left") {
-        return left_move(g_board)
+        return left_move(board)
     } else if (direction == "up") {
-        return up_move(g_board)
+        return up_move(board)
     } else if (direction == "down") {
-        return down_move(g_board)
+        return down_move(board)
     } else {
-        console.log('error')
+        console.log('error invalid direction value: ', direction)
     }
 }
 

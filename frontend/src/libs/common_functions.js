@@ -8,9 +8,11 @@ export {
 }
 
 import { NEW_VALUE_LIST } from "../configure.js"
+import { State } from "./global_state.js"
+import { elements } from "./ui_elements.js"
 
 
-function add_one_new_value_to_free_cell (board) {
+function add_one_new_value_to_free_cell(board) {
 
     const free_cells = getFreeCells(board)
 
@@ -38,6 +40,7 @@ function getRandomInt(min, max) {
 
 
 function getFreeCells(board) {
+
     const free_cells = []
     
     for (let line_no = 0; line_no < board.length; line_no++) {
@@ -76,7 +79,7 @@ function get_direction(event) {
 }
 
 
-function game_over(board_el) {
+function game_over() {
     console.log('game over')
-    board_el.classList.add('game-over')
+    elements['game_board'].classList.add('game-over')
 }

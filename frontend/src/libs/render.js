@@ -1,18 +1,25 @@
 export { render }
 
+import { elements } from "./ui_elements.js"
+import { State } from './global_state.js'
 
-function render(arr, board, score) {
-    render_game_board(arr, board)
-    render_score(score)
+
+function render() {
+    render_game_board()
+    render_score()
 }
 
 
-function render_score(score) {
-    
+function render_score() {
+    let state = State.getInstance()
+    const score = state.current_score
+    elements['score_current'].innerHTML = score
 }
 
-function render_game_board(arr, board) {
-    board.innerHTML = ''
+function render_game_board() {
+    let state = State.getInstance()
+    const arr = state.game_board
+    elements['game_board'].innerHTML = ''
     for (const line of arr) {
         for (const cell of line) {
             let cell_el = document.createElement('div')
@@ -21,7 +28,7 @@ function render_game_board(arr, board) {
                 cell_el.classList.add('cell-' + cell)
                 cell_el.innerHTML = cell
             }
-            board.append(cell_el) 
+            elements['game_board'].append(cell_el) 
         }
     }
 }
