@@ -1,7 +1,17 @@
 export { render }
 
 
-function render(arr, board) {
+function render(arr, board, score) {
+    render_game_board(arr, board)
+    render_score(score)
+}
+
+
+function render_score(score) {
+    
+}
+
+function render_game_board(arr, board) {
     board.innerHTML = ''
     for (const line of arr) {
         for (const cell of line) {

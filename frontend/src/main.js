@@ -10,6 +10,10 @@ import './styles/cells.css'
 const game_board_el = document.querySelector('#game-board')
 const restart_button = document.querySelector('#restart')
 
+const elements = {
+    
+}
+
 
 
 let game_board = init_game_board()
