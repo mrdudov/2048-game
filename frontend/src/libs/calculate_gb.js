@@ -15,7 +15,6 @@ function calc(direction) {
     }
 }
 
-
 function sum_cells(cell_to, cell_from) {
     State.increase_score(cell_from["value"])
     cell_to["value"] = 2 * cell_from["value"]
@@ -23,6 +22,10 @@ function sum_cells(cell_to, cell_from) {
     cell_from["value"] = 0
 }
 
+function move_cell(from, to) {
+    to["value"] = from["value"]
+    from["value"] = 0
+}
 
 function right_move(board) {
     board = add_is_add_flag(board)
@@ -33,8 +36,7 @@ function right_move(board) {
                 let t = cell_i
                 while (line[t+1] !== undefined) {
                     if (line[t+1]["value"] === 0) {
-                        line[t+1]["value"] = line[t]["value"]
-                        line[t]["value"] = 0
+                        move_cell(line[t], line[t+1])
                         t += 1
                     } else if(line[t]["value"] === line[t+1]["value"]) {
                         if (line[t+1]["is_add"]) {
@@ -62,8 +64,7 @@ function left_move(board) {
                 let t = cell
                 while (line[t-1] !== undefined) {
                     if (line[t-1]["value"] === 0) {
-                        line[t-1]["value"] = line[t]["value"]
-                        line[t]["value"] = 0
+                        move_cell(line[t], line[t-1])
                         t -= 1
                     } else  if(line[t]["value"] === line[t-1]["value"]) {
                         if (line[t-1]["is_add"]) {
@@ -91,8 +92,7 @@ function up_move(board) {
                 let t = line_no
                 while (board[t-1] !== undefined) {
                     if (board[t-1][cell_no]["value"] === 0) {
-                        board[t-1][cell_no]["value"] = board[t][cell_no]["value"]
-                        board[t][cell_no]["value"] = 0
+                        move_cell(board[t][cell_no], board[t-1][cell_no])
                         t -= 1
                     } else if(board[t][cell_no]["value"] === board[t-1][cell_no]["value"]) {
                         if (board[t-1][cell_no]["is_add"]) {
@@ -120,8 +120,7 @@ function down_move(board) {
                 let t = line_no
                 while (board[t+1] !== undefined) {
                     if (board[t+1][cell_no]["value"] === 0) {
-                        board[t+1][cell_no]["value"] = board[t][cell_no]["value"]
-                        board[t][cell_no]["value"] = 0
+                        move_cell(board[t][cell_no], board[t+1][cell_no])
                         t += 1
                     } else if(board[t][cell_no]["value"] === board[t+1][cell_no]["value"]) {
                         if (board[t+1][cell_no]["is_add"]) {
