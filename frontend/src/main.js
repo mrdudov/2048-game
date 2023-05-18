@@ -11,6 +11,7 @@ const state = State.getInstance()
 
 elements["restart_button"].onclick = () => {
   elements["game_board"].classList.remove("game-over")
+  elements["game_board"].classList.remove("win")
   State.reset()
   render()
 }

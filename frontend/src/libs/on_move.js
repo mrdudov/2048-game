@@ -7,6 +7,7 @@ import { State } from "./global_state.js"
 import { calc_record } from "./record.js"
 import { is_game_over } from "./game_over.js"
 import { elements } from "./ui_elements.js"
+import { is_win } from "./win.js"
 
 function on_move(direction) {
   const state = State.getInstance()
@@ -22,9 +23,13 @@ function on_move(direction) {
     state.game_board = add_one_new_value_to_free_cell(state.game_board)
   }
 
+  const win = is_win(state.game_board)
+  if (win) {
+    elements['game_board'].classList.add('win')
+  }
   const game_over = is_game_over(state.game_board)
 
   if (game_over) {
-    elements['game_board'].classList.add('game-over')
+    elements["game_board"].classList.add("game-over")
   }
 }

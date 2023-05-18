@@ -8,7 +8,7 @@ function init_game_board() {
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
-    [0, 0, 0, 0],
+    [0, 0, 1024, 1024],
   ]
 
   for (let i = 0; i < INIT_CELLS_COUNT; i++) {

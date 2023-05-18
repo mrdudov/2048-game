@@ -77,6 +77,16 @@ main {
   content: "GAME OVER";
 }
 
+.win {
+  opacity: 0.5;
+}
+
+.win:before {
+  font-size: 3rem;
+  position: absolute;
+  content: "YOU WIN!";
+}
+
 .score {
   width: 440px;
   display: flex;
