@@ -1,6 +1,6 @@
 import { expect, test, describe } from "@jest/globals"
 
-import { is_game_over } from "./game_over.js" 
+import { is_game_over } from "../libs/game_over.js" 
 import { game_over_data_set } from "./game_over_test_data_set.js" 
 
 describe(game_over_data_set["describe"], () => {
