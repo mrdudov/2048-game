@@ -4,18 +4,15 @@ export {
   add_one_new_value_to_free_cell,
   getFreeCells,
   get_direction,
-  game_over,
 }
 
 import { NEW_VALUE_LIST } from "../configure.js"
-import { State } from "./global_state.js"
-import { elements } from "./ui_elements.js"
 
 function add_one_new_value_to_free_cell(board) {
   const free_cells = getFreeCells(board)
 
   if (free_cells.length === 0) {
-    return "game_over"
+    return board
   }
 
   if (free_cells.length === 1) {
@@ -55,20 +52,16 @@ function getNewValue() {
 
 function get_direction(event) {
   event = event || window.event
-  if (event.keyCode == "38") {
-    return "up"
-  } else if (event.keyCode == "40") {
-    return "down"
-  } else if (event.keyCode == "37") {
-    return "left"
-  } else if (event.keyCode == "39") {
-    return "right"
-  } else {
-    return ""
+  switch (event.keyCode) {
+    case 38:
+      return 'up'
+    case 40:
+      return 'down'
+    case 37:
+      return 'left'
+    case 39:
+      return 'right'
+    default:
+      return ''
   }
-}
-
-function game_over() {
-  console.log("game over")
-  elements["game_board"].classList.add("game-over")
 }

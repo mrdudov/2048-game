@@ -5,6 +5,8 @@ import { calc } from "./calculate_gb.js"
 import { add_one_new_value_to_free_cell } from "./common_functions.js"
 import { State } from "./global_state.js"
 import { calc_record } from "./record.js"
+import { is_game_over } from "./game_over.js"
+import { elements } from "./ui_elements.js"
 
 function on_move(direction) {
   const state = State.getInstance()
@@ -18,5 +20,11 @@ function on_move(direction) {
 
   for (let i = 0; i < NEW_VALUE_COUNT; i++) {
     state.game_board = add_one_new_value_to_free_cell(state.game_board)
+  }
+
+  const game_over = is_game_over(state.game_board)
+
+  if (game_over) {
+    elements['game_board'].classList.add('game-over')
   }
 }
