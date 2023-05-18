@@ -1,6 +1,6 @@
 import { render } from "./libs/render.js"
 import { on_move } from "./libs/on_move.js"
-import { get_direction, game_over } from "./libs/common_functions.js"
+import { get_direction } from "./libs/common_functions.js"
 import { elements } from "./libs/ui_elements.js"
 import { State } from "./libs/global_state.js"
 
@@ -21,12 +21,10 @@ document.addEventListener("keydown", (ev) => {
     return
   }
   if (!state.game_board) {
-    game_over(elements["game_board"])
     return
   }
   on_move(direction)
   if (!state.game_board) {
-    game_over(elements["game_board"])
     return
   }
   render()
