@@ -2,89 +2,90 @@
 @import 'reset-css';
 
 body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    margin: auto;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin: auto;
 }
 
 header {
-    margin: 3rem 0 1rem 0;
-    display: flex;
-    justify-content: center;
+  margin: 3rem 0 1rem 0;
+  display: flex;
+  justify-content: center;
 }
 
 header h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #game-board {
-    margin: auto;
-    height: 440px;
-    width: 440px;
-    background-color: #e8e9ff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2px;
-    border-radius: 5px;
+  margin: auto;
+  height: 440px;
+  width: 440px;
+  background-color: #e8e9ff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+  border-radius: 5px;
 }
 
 .cell {
-    width: 100px;
-    height: 100px;
-    background-color: #fffdec;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    color: #3f4052;
-    border-radius: 5px;
+  width: 100px;
+  height: 100px;
+  background-color: #fffdec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #3f4052;
+  border-radius: 5px;
 }
 
 #restart {
-    margin-top: 2rem;
-    height: 3rem;
-    width: 12rem;
-    border: 1px solid #353edc;
-    background-color: #353edc;
-    color: white;
-    font-size: 2rem;
-    border-radius: 0.5rem;
-    text-transform: uppercase;
-    cursor: pointer;
+  margin-top: 2rem;
+  height: 3rem;
+  width: 12rem;
+  border: 1px solid #353edc;
+  background-color: #353edc;
+  color: white;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 #restart:active {
-    background-color: white;
-    color: #353edc;
+  background-color: white;
+  color: #353edc;
 }
 
 .game-over {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .game-over:before {
-    position: absolute;
-    content: "GAME OVER";
+  position: absolute;
+  content: "GAME OVER";
 }
 
 .score {
-    width: 440px;
-    display: flex;
-    justify-content: space-between;
+  width: 440px;
+  display: flex;
+  justify-content: space-between;
 }
+
 .score-current {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .score-record {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }

@@ -1,39 +1,35 @@
-import { render } from './libs/render.js'
-import { on_move } from './libs/on_move.js'
-import { get_direction, game_over } from './libs/common_functions.js'
-import { elements } from './libs/ui_elements.js'
-import { State } from './libs/global_state.js'
+import { render } from "./libs/render.js"
+import { on_move } from "./libs/on_move.js"
+import { get_direction, game_over } from "./libs/common_functions.js"
+import { elements } from "./libs/ui_elements.js"
+import { State } from "./libs/global_state.js"
 
-
-import './styles/style.css'
-import './styles/cells.css'
-
+import "./styles/style.css"
+import "./styles/cells.css"
 
 const state = State.getInstance()
 
-
-elements['restart_button'].onclick = () => {
-    elements['game_board'].classList.remove('game-over')
-    State.reset()
-    render()
+elements["restart_button"].onclick = () => {
+  elements["game_board"].classList.remove("game-over")
+  State.reset()
+  render()
 }
 
-
 document.addEventListener("keydown", (ev) => {
-    const direction = get_direction(ev)
-    if (!direction) {
-        return
-    }
-    if (!state.game_board) {
-        game_over(elements['game_board'])
-        return
-    }
-    on_move(direction)
-    if (!state.game_board) {
-        game_over(elements['game_board'])
-        return
-    }
-    render()
+  const direction = get_direction(ev)
+  if (!direction) {
+    return
+  }
+  if (!state.game_board) {
+    game_over(elements["game_board"])
+    return
+  }
+  on_move(direction)
+  if (!state.game_board) {
+    game_over(elements["game_board"])
+    return
+  }
+  render()
 })
 
 render()

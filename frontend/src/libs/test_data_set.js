@@ -1,4 +1,4 @@
-export { double_adding_case_1, double_adding_case_2 };
+export { double_adding_case_1, double_adding_case_2 }
 
 const double_adding_case_1 = {
   describe: "double adding case 1",
