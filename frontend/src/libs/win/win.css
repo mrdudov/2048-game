@@ -1,0 +1,17 @@
+.win-card {
+  position: relative;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  bottom: 1rem;
+}
+
+.win {
+  opacity: 0.5;
+}
+
+.win:before {
+  /* font-size: 3rem; */
+  /* position: absolute; */
+  /* content: "YOU WIN!"; */
+}
