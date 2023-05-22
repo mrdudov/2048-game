@@ -8,6 +8,7 @@ class State {
     this.game_board = init_game_board()
     this.current_score = 0
     this.record = get_record()
+    this.is_moves_enabled = true
   }
 
   static getInstance() {
