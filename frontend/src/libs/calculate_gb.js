@@ -44,7 +44,7 @@ function right_move(board) {
             if (line[t + 1]["is_add"]) {
               break
             }
-            score_plus = sum_cells(line[t + 1], line[t])
+            score_plus += sum_cells(line[t + 1], line[t])
             break
           } else {
             break
@@ -76,7 +76,7 @@ function left_move(board) {
             if (line[t - 1]["is_add"]) {
               break
             }
-            score_plus = sum_cells(line[t - 1], line[t])
+            score_plus += sum_cells(line[t - 1], line[t])
             break
           } else {
             break
@@ -110,7 +110,7 @@ function up_move(board) {
             if (board[t - 1][cell_no]["is_add"]) {
               break
             }
-            score_plus = sum_cells(board[t - 1][cell_no], board[t][cell_no])
+            score_plus += sum_cells(board[t - 1][cell_no], board[t][cell_no])
             break
           } else {
             break
@@ -144,7 +144,7 @@ function down_move(board) {
             if (board[t + 1][cell_no]["is_add"]) {
               break
             }
-            score_plus = sum_cells(board[t + 1][cell_no], board[t][cell_no])
+            score_plus += sum_cells(board[t + 1][cell_no], board[t][cell_no])
             break
           } else {
             break
