@@ -1,17 +1,35 @@
 .win-card {
-  position: relative;
-  /* display: flex;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center; */
-  bottom: 1rem;
+  justify-content: space-around;
+  font-size: 3rem;
+  background-color: rgb(72, 127, 150);
+  color: rgb(208, 255, 203);
+  height: 250px;
+  width: 400px;
+  border-radius: 10px;
+  z-index: 10;
 }
 
 .win {
   opacity: 0.5;
 }
 
-.win:before {
-  /* font-size: 3rem; */
-  /* position: absolute; */
-  /* content: "YOU WIN!"; */
+#continue-btn {
+  height: 3rem;
+  width: 12rem;
+  border: 1px solid #353edc;
+  background-color: #353edc;
+  color: white;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#continue-btn:active {
+  background-color: white;
+  color: #353edc;
 }

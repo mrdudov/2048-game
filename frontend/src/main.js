@@ -13,6 +13,7 @@ elements["restart_button"].onclick = () => {
   elements["game_board"].classList.remove("game-over")
   elements["game_board"].classList.remove("win")
   state.is_moves_enabled = true
+  state.is_continue_on_win = false
   State.reset()
   render()
 }

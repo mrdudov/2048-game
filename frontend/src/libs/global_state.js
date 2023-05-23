@@ -9,6 +9,7 @@ class State {
     this.current_score = 0
     this.record = get_record()
     this.is_moves_enabled = true
+    this.is_continue_on_win = false
   }
 
   static getInstance() {
@@ -22,6 +23,9 @@ class State {
     if (this.instance) {
       this.instance.game_board = init_game_board()
       this.instance.current_score = 0
+      this.record = get_record()
+      this.is_moves_enabled = true
+      this.is_continue_on_win = false
     }
   }
 

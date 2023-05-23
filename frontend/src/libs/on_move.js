@@ -7,7 +7,7 @@ import { State } from "./global_state.js"
 import { calc_record } from "./record.js"
 import { is_game_over } from "./game_over.js"
 import { elements } from "./ui_elements.js"
-import { is_win, win_card } from "./win/win.js"
+import { is_win, show_win } from "./win/win.js"
 
 function on_move(direction) {
   const state = State.getInstance()
@@ -22,13 +22,8 @@ function on_move(direction) {
     state.game_board = add_one_new_value_to_free_cell(state.game_board)
   }
   const win = is_win(state.game_board)
-  if (win) {
-    elements["game_board"].classList.add("win")
-    state.is_moves_enabled = false
-    console.log(win_card)
-
-    console.log(elements["game_board"])
-    elements.game_board.parentNode.insertBefore(win_card, elements.game_board)
+  if (!state.is_continue_on_win && win) {
+    show_win()
   }
   const game_over = is_game_over(state.game_board)
   if (game_over) {
