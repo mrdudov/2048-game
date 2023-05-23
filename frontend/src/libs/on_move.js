@@ -2,7 +2,10 @@ export { on_move }
 
 import { NEW_VALUE_COUNT } from "../configure.js"
 import { calc } from "./calculate_gb.js"
-import { add_one_new_value_to_free_cell } from "./common_functions.js"
+import {
+  add_one_new_value_to_free_cell,
+  is_equal_game_board,
+} from "./common_functions.js"
 import { State } from "./global_state.js"
 import { calc_record } from "./record.js"
 import { is_game_over } from "./game_over.js"
@@ -14,10 +17,13 @@ function on_move(direction) {
   if (!state.is_moves_enabled) {
     return
   }
-  const calc_val = calc(direction, state.game_board)
-  State.increase_score(calc_val["score_plus"])
+  const calc_game_board = calc(direction, state.game_board)
+  if (is_equal_game_board(calc_game_board["board"], state.game_board)) {
+    return
+  }
+  State.increase_score(calc_game_board["score_plus"])
   state.record = calc_record(state.current_score)
-  state.game_board = calc_val["board"]
+  state.game_board = calc_game_board["board"]
   for (let i = 0; i < NEW_VALUE_COUNT; i++) {
     state.game_board = add_one_new_value_to_free_cell(state.game_board)
   }

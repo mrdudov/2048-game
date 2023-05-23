@@ -4,6 +4,7 @@ export {
   add_one_new_value_to_free_cell,
   getFreeCells,
   get_direction,
+  is_equal_game_board
 }
 
 import { NEW_VALUE_LIST } from "../configure.js"
@@ -54,14 +55,25 @@ function get_direction(event) {
   event = event || window.event
   switch (event.keyCode) {
     case 38:
-      return 'up'
+      return "up"
     case 40:
-      return 'down'
+      return "down"
     case 37:
-      return 'left'
+      return "left"
     case 39:
-      return 'right'
+      return "right"
     default:
-      return ''
+      return ""
   }
+}
+
+function is_equal_game_board(board_1, board_2) {
+  for (let line_no = 0; line_no < board_1.length; line_no++) {
+    for (let cell_no = 0; cell_no < board_1[line_no].length; cell_no++) {
+      if (board_1[line_no][cell_no] !== board_2[line_no][cell_no]) {
+        return false
+      }
+    }
+  }
+  return true
 }
