@@ -1,6 +1,6 @@
 import { expect, test, describe } from "@jest/globals"
 
-import { is_win } from "../libs/win.js"
+import { is_win } from "../libs/win/lib/functions.js"
 import { win_data_set } from "./win_data_set.js"
 
 describe(win_data_set["describe"], () => {

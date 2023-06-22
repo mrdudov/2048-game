@@ -10,7 +10,8 @@ import { State } from "./global_state.js"
 import { calc_record } from "./record.js"
 import { is_game_over } from "./game_over.js"
 import { elements } from "./ui_elements.js"
-import { is_win, show_win } from "./win/win.js"
+import { show_win } from "./win/win.js"
+import { is_win } from "./win/lib/functions.js"
 
 function on_move(direction) {
   const state = State.getInstance()
